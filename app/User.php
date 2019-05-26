@@ -38,4 +38,12 @@ class User extends MongoModel implements Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Traer la coleccion embebida
+     */
+    public function profile()
+    {
+        return $this->embedsOne('Profile');
+    }
 }
