@@ -12,7 +12,6 @@ $factory->define(Profile::class, function (Faker $faker) {
         'address' => $faker->address,
         'phone' => $faker->phone, 
         'birthday' => $faker->dateTime('2014-02-25 08:37:17'),
-        'user_id'=> factory('DBProject\User')->create()->id,
-        'post'=> factory('DBProject\Post')->create()
+        'user_id'=> factory('DBProject\User')->create()->id
     ];
 });

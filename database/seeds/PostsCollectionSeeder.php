@@ -11,6 +11,6 @@ class PostsCollectionSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(DBProject\Post::class,10)->create();
     }
 }
