@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    @foreach ($posts as $post)
-    <h2>{{$post->title}}</h2>
-    <p>{{$post->content}}</p>
-    @endforeach
+    <h2>Publicaciones</h2>
+    <post-component></post-component>
 @endsection
