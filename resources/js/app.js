@@ -21,7 +21,11 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('post-component', require('./components/PostComponent.vue').default);
+Vue.component('post-component', require('./components/home/PostItemComponent.vue').default);
+Vue.component('post-list-component', require('./components/home/PostListComponent.vue').default);
+Vue.component('most-popular-post-item-component', require('./components/home/MostPopularPostItemComponent.vue').default);
+Vue.component('most-popular-post-list-component',require('./components/home/MostPopularPostListComponent.vue').default);
+Vue.component('home-component',require('./components/home/HomeComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
