@@ -74,7 +74,7 @@
 
         <main class="py-4">
             <div class="row">
-            @include('includes.sidebar')
+            
             @yield('content')      
             </div>
         </main>

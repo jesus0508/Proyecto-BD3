@@ -25,6 +25,7 @@ Vue.component('post-component', require('./components/home/PostItemComponent.vue
 Vue.component('post-list-component', require('./components/home/PostListComponent.vue').default);
 Vue.component('most-popular-post-item-component', require('./components/home/MostPopularPostItemComponent.vue').default);
 Vue.component('most-popular-post-list-component',require('./components/home/MostPopularPostListComponent.vue').default);
+Vue.component('create-post-component',require('./components/home/CreatePostComponent.vue').default);
 Vue.component('home-component',require('./components/home/HomeComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -1,6 +1,7 @@
 <template>
 <div class="container">
   <div class="row">
+  <create-post-component></create-post-component>
   <post-list-component :posts="posts"></post-list-component>
   <most-popular-post-list-component :posts="posts"></most-popular-post-list-component>
   </div>
@@ -10,9 +11,9 @@
 <script>
 import PostListComponent from './PostListComponent'
 import MostPopularPostListComponent from './MostPopularPostListComponent'
-
+import CreatePostComponent from './CreatePostComponent'
 export default {
-    components: {PostListComponent,MostPopularPostListComponent},
+    components: {PostListComponent,MostPopularPostListComponent,CreatePostComponent},
     data() {
         return {
             posts:[]
@@ -23,7 +24,8 @@ export default {
   },
   methods:{
     getAllPosts(){
-      axios.get('/api/posts')
+      let url='/api/posts'
+      axios.get(url)
             .then(res=>{
               this.posts=res.data.data
               console.log(res)

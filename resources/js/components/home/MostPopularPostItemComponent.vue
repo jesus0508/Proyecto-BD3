@@ -1,6 +1,6 @@
 <template>
 <a href="#" class="list-group-item list-group-item-action">
-  <div class="post">
+  <div class="d-sm-flex .justify-content-sm-between">
     <h5 v-text="post.title" class="mb-1"></h5>
     <small v-text="post.created_at"></small>
   </div>
@@ -19,14 +19,3 @@ export default {
 }
 </script>
 
-<style>
-  .post{
-    display: flex;
-    justify-content: space-between;
-  }
-  @media (min-width: 768px) { 
-    .post{
-      display: block;
-    }
-  }
-</style>
