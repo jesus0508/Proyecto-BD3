@@ -27,6 +27,7 @@ Vue.component('most-popular-post-item-component', require('./components/home/Mos
 Vue.component('most-popular-post-list-component',require('./components/home/MostPopularPostListComponent.vue').default);
 Vue.component('create-post-component',require('./components/home/CreatePostComponent.vue').default);
 Vue.component('home-component',require('./components/home/HomeComponent.vue').default);
+Vue.component('vue-editor',require('vue2-editor').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

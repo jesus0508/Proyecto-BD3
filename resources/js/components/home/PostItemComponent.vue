@@ -1,20 +1,18 @@
 <template>
-<div class="card mb-3">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="/storage/mikasa.jpg" class="card-img" alt="64">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 v-text="post.title" class="card-title"></h5>
-        <p class="card-text">
-          <small v-text="post.created_at" class="text-muted"></small>
-        </p>
-        <p v-text="post.content" class="card-text"></p>
+<div class="card my-3">
+  <div class="card-header">
+    <div class="d-flex align-items-center">
+      <img src="https://picsum.photos/50/50" width="45" class="rounded-circle mr-2" alt="photo" >
+      <div class="ml-2">
+        <h5 v-text="post.title" class="m-0"></h5>
+        <small v-text="post.created_at" class="text-muted"></small>
       </div>
     </div>
   </div>
-  <div class="card-footer">
+  <div class="card-body">
+    <p v-text="post.content" class="card-text"></p>
+  </div>
+  <div class="card-footer text-muted py-1">
     <ul class="list-group list-group-horizontal justify-content-end">
       <a href="" class="list-group-item">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

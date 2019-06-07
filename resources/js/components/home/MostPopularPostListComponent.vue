@@ -1,6 +1,6 @@
 <template>
   <div class="col-md-3">
-    <h4>Los mas Populares</h4>
+    <h5>Publicaciones Destacadas</h5>
     <most-popular-post-item-component v-for="post in posts" :post="post" :key="post.id">
     </most-popular-post-item-component>
   </div>
