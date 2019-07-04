@@ -35,7 +35,7 @@ class PostController extends Controller
         //$post->autor=Auth::user()->username;
         $post->contenido=$request->input('content');
         $post->fecha=date("Y-m-d H:i:s");
-        return $posts;
+        return $request->all();
         //Post::create();
     }
 
