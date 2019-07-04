@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DBProject\Post;
 use DBProject\Http\Controllers\Controller;
 use DBProject\Http\Resources\PostResource;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -31,11 +32,11 @@ class PostController extends Controller
     {
         //
         $post=new Post;
-        $post->autor=Auth::user()->username;
+        //$post->autor=Auth::user()->username;
         $post->contenido=$request->input('content');
         $post->fecha=date("Y-m-d H:i:s");
-        dd($post);
-        Post::create();
+        return $posts;
+        //Post::create();
     }
 
     /**

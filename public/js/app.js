@@ -1803,14 +1803,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      contenido: "",
       post: ""
     };
   },
   methods: {
     createPost: function createPost() {
       var url = "/api/posts";
-      axios.post(url, {
-        content: contenido
+      var content = this.contenido;
+      axios.post(url, content).then(function (resp) {
+        console.log(resp);
+      })["catch"](function (error) {
+        console.log(error);
       });
     }
   }
@@ -50952,7 +50956,11 @@ var render = function() {
                       }
                     ],
                     staticClass: "form-control",
-                    attrs: { rows: "3", placeholder: "En que estas pensando?" },
+                    attrs: {
+                      name: "content",
+                      rows: "3",
+                      placeholder: "En que estas pensando?"
+                    },
                     domProps: { value: _vm.contenido },
                     on: {
                       input: function($event) {

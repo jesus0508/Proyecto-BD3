@@ -15,7 +15,7 @@
           <div class="tab-pane fade active show" role="tabpanel" aria-labelledby="posts-tab">
             <div class="form-group">
               <label class="sr-only" for="message">Post</label>
-              <textarea v-model="contenido" class="form-control" rows="3" placeholder="En que estas pensando?"></textarea>
+              <textarea name="content" v-model="contenido" class="form-control" rows="3" placeholder="En que estas pensando?"></textarea>
             </div>
           </div>
         </div>
@@ -44,9 +44,11 @@ export default {
   methods: {
     createPost() {
       let url = "/api/posts";
-      axios.post(url, {
-        content: contenido
-      });
+      let content=this.contenido;
+      axios.post(url,content).then((resp)=>{
+        console.log(resp);
+      }).catch((error)=>{
+        console.log(error)});
     }
   }
 };
