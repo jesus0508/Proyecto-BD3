@@ -10,12 +10,12 @@
           </li>
         </ul>
       </div>
-      <div class="card-body">
+      <form class="card-body" method="post" @submit.prevent="createPost">
         <div class="tab-content">
           <div class="tab-pane fade active show" role="tabpanel" aria-labelledby="posts-tab">
             <div class="form-group">
               <label class="sr-only" for="message">Post</label>
-              <textarea class="form-control" rows="3" placeholder="En que estas pensando?"></textarea>
+              <textarea v-model="contenido" class="form-control" rows="3" placeholder="En que estas pensando?"></textarea>
             </div>
           </div>
         </div>
@@ -24,7 +24,7 @@
             <button type="submit" class="btn btn-primary">Publicar</button>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </template>
@@ -37,6 +37,7 @@ export default {
   },
   data() {
     return {
+      contenido:"",
       post: ""
     };
   },
@@ -44,8 +45,7 @@ export default {
     createPost() {
       let url = "/api/posts";
       axios.post(url, {
-        title: "",
-        content: ""
+        content: contenido
       });
     }
   }

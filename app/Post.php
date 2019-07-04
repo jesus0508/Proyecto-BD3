@@ -7,12 +7,21 @@ use MongoModel;
 
 class Post extends MongoModel
 {
+    protected $collection = 'publicacion';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'user_id', 'title', 'content', 'date'
+        'autor', 'contenido', 'fecha'
     ];
+
+    /**
+     * Traer la coleccion embebida
+     */
+    public function profile()
+    {
+        return $this->embedsMany('Profile');
+    }
 }

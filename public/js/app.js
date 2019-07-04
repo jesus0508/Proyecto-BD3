@@ -1810,8 +1810,7 @@ __webpack_require__.r(__webpack_exports__);
     createPost: function createPost() {
       var url = "/api/posts";
       axios.post(url, {
-        title: "",
-        content: ""
+        content: contenido
       });
     }
   }
@@ -1860,7 +1859,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var url = '/api/posts';
       axios.get(url).then(function (res) {
-        _this.posts = res.data.data;
+        _this.posts = res.data;
         console.log(res);
       })["catch"](function (err) {
         return console.log(err);
@@ -50911,44 +50910,23 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mb-1" }, [
-      _c("div", { staticClass: "card gedf-card" }, [
-        _c("div", { staticClass: "card-header" }, [
-          _c(
-            "ul",
-            {
-              staticClass: "nav nav-tabs card-header-tabs",
-              attrs: { role: "tablist" }
-            },
-            [
-              _c("li", { staticClass: "nav-item" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "nav-link active show",
-                    attrs: {
-                      "data-toggle": "tab",
-                      href: "#posts",
-                      role: "tab",
-                      "aria-controls": "posts",
-                      "aria-selected": "true"
-                    }
-                  },
-                  [_vm._v("\n            Crea una publacion\n          ")]
-                )
-              ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
+  return _c("div", { staticClass: "mb-1" }, [
+    _c("div", { staticClass: "card gedf-card" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          staticClass: "card-body",
+          attrs: { method: "post" },
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.createPost($event)
+            }
+          }
+        },
+        [
           _c("div", { staticClass: "tab-content" }, [
             _c(
               "div",
@@ -50965,24 +50943,81 @@ var staticRenderFns = [
                   ),
                   _vm._v(" "),
                   _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.contenido,
+                        expression: "contenido"
+                      }
+                    ],
                     staticClass: "form-control",
-                    attrs: { rows: "3", placeholder: "En que estas pensando?" }
+                    attrs: { rows: "3", placeholder: "En que estas pensando?" },
+                    domProps: { value: _vm.contenido },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.contenido = $event.target.value
+                      }
+                    }
                   })
                 ])
               ]
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "btn-toolbar justify-content-between" }, [
-            _c("div", { staticClass: "btn-group" }, [
-              _c(
-                "button",
-                { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-                [_vm._v("Publicar")]
-              )
-            ])
+          _vm._m(1)
+        ]
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c(
+        "ul",
+        {
+          staticClass: "nav nav-tabs card-header-tabs",
+          attrs: { role: "tablist" }
+        },
+        [
+          _c("li", { staticClass: "nav-item" }, [
+            _c(
+              "a",
+              {
+                staticClass: "nav-link active show",
+                attrs: {
+                  "data-toggle": "tab",
+                  href: "#posts",
+                  role: "tab",
+                  "aria-controls": "posts",
+                  "aria-selected": "true"
+                }
+              },
+              [_vm._v("\n            Crea una publacion\n          ")]
+            )
           ])
-        ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "btn-toolbar justify-content-between" }, [
+      _c("div", { staticClass: "btn-group" }, [
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+          [_vm._v("Publicar")]
+        )
       ])
     ])
   }
@@ -51056,7 +51091,7 @@ var render = function() {
         [
           _c("h5", {
             staticClass: "mb-1",
-            domProps: { textContent: _vm._s(_vm.post.title) }
+            domProps: { textContent: _vm._s(_vm.post.autor) }
           }),
           _vm._v(" "),
           _c("small", {
@@ -51065,7 +51100,7 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("small", [_vm._v("Donec id elit non mi porta.")])
+      _c("small", { domProps: { textContent: _vm._s(_vm.post.contenido) } })
     ]
   )
 }
@@ -51095,7 +51130,7 @@ var render = function() {
     "div",
     { staticClass: "col-md-3" },
     [
-      _c("h4", [_vm._v("Publicaciones Destacadas")]),
+      _c("h5", [_vm._v("Publicaciones Destacadas")]),
       _vm._v(" "),
       _vm._l(_vm.posts, function(post) {
         return _c("most-popular-post-item-component", {
@@ -51144,7 +51179,7 @@ var render = function() {
         _c("div", { staticClass: "ml-2" }, [
           _c("h5", {
             staticClass: "m-0",
-            domProps: { textContent: _vm._s(_vm.post.title) }
+            domProps: { textContent: _vm._s(_vm.post.autor) }
           }),
           _vm._v(" "),
           _c("small", {
@@ -51158,7 +51193,7 @@ var render = function() {
     _c("div", { staticClass: "card-body" }, [
       _c("p", {
         staticClass: "card-text",
-        domProps: { textContent: _vm._s(_vm.post.content) }
+        domProps: { textContent: _vm._s(_vm.post.contenido) }
       })
     ]),
     _vm._v(" "),

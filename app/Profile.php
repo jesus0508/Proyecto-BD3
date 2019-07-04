@@ -7,12 +7,13 @@ use MongoModel;
 
 class Profile extends MongoModel
 {
+    protected $collection = 'usuario';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'code', 'names', 'last_name', 'address', 'phone', 'birthday'
+        'codigo', 'nombres', 'apellido_paterno', 'apellido_materno', 'direccion', 'telefono','fecha_nacimiento'
     ];
 }

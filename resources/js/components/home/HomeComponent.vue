@@ -26,7 +26,7 @@ export default {
       let url='/api/posts'
       axios.get(url)
             .then(res=>{
-              this.posts=res.data.data
+              this.posts=res.data
               console.log(res)
             })
             .catch(err=> console.log(err))

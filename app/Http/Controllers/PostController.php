@@ -4,6 +4,7 @@ namespace DBProject\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DBProject\Post;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -14,7 +15,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('posts.index');
+        $user=Auth::user();
+        $grupos=$user->grupos;
+        
+        return view('posts.index')->with('grupos',$grupos);
     }
 
     /**

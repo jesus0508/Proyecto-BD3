@@ -18,7 +18,7 @@ class PostController extends Controller
     {
         //
         $posts=Post::all();
-        return PostResource::collection($posts);
+        return $posts;
     }
 
     /**
@@ -30,6 +30,11 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        $post=new Post;
+        $post->autor=Auth::user()->username;
+        $post->contenido=$request->input('content');
+        $post->fecha=date("Y-m-d H:i:s");
+        dd($post);
         Post::create();
     }
 

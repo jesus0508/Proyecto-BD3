@@ -4,13 +4,13 @@
     <div class="d-flex align-items-center">
       <img src="https://picsum.photos/50/50" width="45" class="rounded-circle mr-2" alt="photo" >
       <div class="ml-2">
-        <h5 v-text="post.title" class="m-0"></h5>
+        <h5 v-text="post.autor" class="m-0"></h5>
         <small v-text="post.created_at" class="text-muted"></small>
       </div>
     </div>
   </div>
   <div class="card-body">
-    <p v-text="post.content" class="card-text"></p>
+    <p v-text="post.contenido" class="card-text"></p>
   </div>
   <div class="card-footer text-muted py-1">
     <ul class="list-group list-group-horizontal justify-content-end">

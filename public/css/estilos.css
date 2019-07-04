@@ -1,0 +1,19 @@
+.banner{
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-image: url('http://unmsm.trabajando.pe/skin/com/trabajando/unmsm/banner_3.jpg');
+  color:#F5F5F5;
+}
+.banner-content{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	color: #FFF;
+	background-color: rgba(0, 22, 40, .6);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
