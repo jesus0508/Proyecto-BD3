@@ -35,7 +35,7 @@ return [
 
         'mongodb' => [
             'driver' => 'mongodb',
-            'dsn' => env('DB_DSN','localhost'),
+            'dsn' => env('DB_DSN','mongodb+srv://bd3:bd3@cluster-base-de-datos3-qslke.azure.mongodb.net/test?retryWrites=true&w=majority'),
             'database' => env('DB_DATABASE','BD3')
         ],
 
