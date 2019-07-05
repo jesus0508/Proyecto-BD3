@@ -34,6 +34,7 @@
     </a>
     </h6>
     <ul class="nav flex-column mb-2">
+    @if(!is_null($grupos))
     @foreach ($grupos as $grupo)
     <li class="nav-item">
         <a class="nav-link" href="#">
@@ -42,6 +43,7 @@
         </a>
     </li>
     @endforeach
+    @endif
     </ul>
 </div>
 </nav>

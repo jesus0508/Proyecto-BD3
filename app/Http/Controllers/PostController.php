@@ -17,7 +17,6 @@ class PostController extends Controller
     {
         $user=Auth::user();
         $grupos=$user->grupos;
-        
         return view('posts.index')->with('grupos',$grupos);
     }
 
